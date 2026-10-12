@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RankUpTogether - Hesap ve Veri Silme Talebi (Account Deletion)</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #ccc;
+            background-color: #0d1117;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1,
+        h2 {
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        h1 {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+        }
+
+        a {
+            color: #58a6ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        .alert {
+            background-color: rgba(248, 81, 73, 0.1);
+            border-left: 4px solid #f85149;
+            padding: 15px;
+            margin-bottom: 20px;
+            color: #ff7b72;
+            font-size: 14px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #c9d1d9;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        input[type="email"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            background-color: #0d1117;
+            color: #c9d1d9;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: #58a6ff;
+            box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.3);
+        }
+
+        button {
+            background-color: #da3633;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #b62324;
+        }
+
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        .lang-switch a {
+            cursor: pointer;
+            margin-left: 10px;
+            color: #8b949e;
+        }
+
+        .lang-switch a.active {
+            color: #58a6ff;
+            font-weight: bold;
+        }
+
+        .en-content {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="/" class="back-link">← Ana Sayfaya Dön (Back to Home)</a>
+
+    <div class="lang-switch">
+        <a id="btn-tr" class="active" onclick="setLang('tr')">Türkçe</a>
+        <a id="btn-en" onclick="setLang('en')">English</a>
+    </div>
+
+    <!-- TURKISH CONTENT -->
+    <div id="content-tr" class="tr-content">
+        <h1>Hesap ve Veri Silme Talebi</h1>
+        <p>RankUpTogether uygulamasındaki hesabınızı ve size ait tüm verilerin kalıcı olarak silinmesini bu form
+            aracılığıyla talep edebilirsiniz.</p>
+
+        <div class="alert">
+            <strong>Kalıcı İşlem:</strong> Hesabınız silindiğinde eşleşmeleriniz, mesajlaşmalarınız, oyun
+            istatistikleriniz ve profildeki bütün verileriniz geri döndürülemez şekilde silinecektir.
+        </div>
+
+        <div class="card">
+            <form action="mailto:info@rankuptogether.com" method="GET" enctype="text/plain"
+                onsubmit="preFormatMail(event, 'tr')">
+                <input type="hidden" name="subject" value="Hesap Silme Talebi (RankUpTogether)">
+                <label for="email-tr">RankUpTogether'a Kayıtlı E-Posta Adresiniz:</label>
+                <input type="email" id="email-tr" name="body" placeholder="oyuncu@ornek.com" required>
+                <button type="submit">Hesabımı ve Verilerimi Sil</button>
+            </form>
+            <p style="font-size: 12px; color: #8b949e; text-align: center; margin-top: 15px;">
+                Talebiniz e-posta istemciniz aracılığıyla bize iletilecektir. Ortalama süreç 1-3 iş günü sürebilir.
+            </p>
+        </div>
+    </div>
+
+    <!-- ENGLISH CONTENT -->
+    <div id="content-en" class="en-content">
+        <h1>Account & Data Deletion Request</h1>
+        <p>You can request the permanent deletion of your RankUpTogether account and all associated data using this
+            form.</p>
+
+        <div class="alert">
+            <strong>Permanent Action:</strong> When your account is deleted, your matches, messages, game stats, and all
+            profile data will be permanently erased. This cannot be undone.
+        </div>
+
+        <div class="card">
+            <form action="mailto:info@rankuptogether.com" method="GET" enctype="text/plain"
+                onsubmit="preFormatMail(event, 'en')">
+                <input type="hidden" name="subject" value="Account Deletion Request (RankUpTogether)">
+                <label for="email-en">Your Registered E-mail Address:</label>
+                <input type="email" id="email-en" name="body" placeholder="gamer@example.com" required>
+                <button type="submit">Delete My Account and Data</button>
+            </form>
+            <p style="font-size: 12px; color: #8b949e; text-align: center; margin-top: 15px;">
+                Your request will be redirected to your e-mail client. Processing usually takes 1-3 business days.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function setLang(lang) {
+            if (lang === 'en') {
+                document.getElementById('content-tr').style.display = 'none';
+                document.getElementById('content-en').style.display = 'block';
+                document.getElementById('btn-tr').classList.remove('active');
+                document.getElementById('btn-en').classList.add('active');
+            } else {
+                document.getElementById('content-tr').style.display = 'block';
+                document.getElementById('content-en').style.display = 'none';
+                document.getElementById('btn-tr').classList.add('active');
+                document.getElementById('btn-en').classList.remove('active');
+            }
+        }
+
+        function preFormatMail(e, lang) {
+            // Intercept standard submission to put the email address clearly in the body
+            e.preventDefault();
+            const email = document.getElementById(lang === 'tr' ? 'email-tr' : 'email-en').value;
+            const subject = lang === 'tr' ? 'Hesap Silme Talebi (RankUpTogether)' : 'Account Deletion Request (RankUpTogether)';
+            const body = lang === 'tr'
+                ? `Merhaba,%0A%0AAşağıdaki e-posta adresiyle kayıtlı üyeliğimin ve tüm verilerimin silinmesini talep ediyorum.%0A%0AEmail: ${email}%0A%0ATeşekkürler.`
+                : `Hello,%0A%0AI am requesting the permanent deletion of my account and all associated data registered with the following email address.%0A%0AEmail: ${email}%0A%0AThank you.`;
+
+            window.location.href = `mailto:info@rankuptogether.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+
+</html>
